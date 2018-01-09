@@ -6,7 +6,7 @@ public class GameTest {
     public void testGameRun() throws Exception {
         //adjust
         RewardLogger rewardLogger = new RewardLogger();
-        int step = 10000000;
+        int step = 10;
 
         //action
         for (long i = 0; i < step; ++i) {
@@ -25,6 +25,9 @@ public class GameTest {
 
         //TotalAmount
         System.out.println("Total Amount = " + rewardLogger.getTotalAmount());
+
+        //Average
+        System.out.println("Average Amount = " + rewardLogger.getTotalAmount()/step);
 
     }
 
