@@ -34,7 +34,9 @@ class Game {
         while (!isGameOver(state, reward)) {
             state = state.changeStateGame(this, reward);
             reward = player.openBox();
-            log.addNumberRewardsToDictionary(reward);
+            if (reward != null) {
+                log.addNumberRewardsToDictionary(reward);
+            }
         }
         log.addAmountToTotal(player.getTotalWinAmount());
     }

@@ -1,9 +1,5 @@
 import org.junit.Test;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import static org.junit.Assert.*;
 
 public class GameTest {
     @Test
@@ -12,7 +8,8 @@ public class GameTest {
         RewardLogger rewardLogger = new RewardLogger();
 
         //action
-        for (int i = 0; i < 10000000; ++i) {
+        for (long i = 0; i < 10000000; ++i) {
+            System.out.println("New game:" + i);
             new Game(rewardLogger).run();
         }
         System.out.println(rewardLogger.getDictionaryRewards());

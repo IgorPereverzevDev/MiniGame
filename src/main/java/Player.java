@@ -37,6 +37,7 @@ class Player {
     }
 
     Reward openBox() {
-        return boxesWithAwards.getNextBox().getReward();
+        Box box = boxesWithAwards.getNextBox();
+        return box == null ? null : box.getReward();
     }
 }

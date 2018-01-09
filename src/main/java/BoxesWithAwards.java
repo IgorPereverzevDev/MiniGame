@@ -20,10 +20,14 @@ class BoxesWithAwards {
     }
 
     Box getNextBox() {
-        if (listsOfBoxes == null || listsOfBoxes.isEmpty()) {
+        if (listsOfBoxes == null) {
             listsOfBoxes = new ArrayList<>(MaxRange);
             this.createListOfBoxes();
             Collections.shuffle(listsOfBoxes);
+        }
+
+        if (listsOfBoxes.isEmpty()){
+            return  null;
         }
         Box box = listsOfBoxes.get(getNextBoxIndex());
         listsOfBoxes.remove(box);
