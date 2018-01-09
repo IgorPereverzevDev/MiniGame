@@ -6,13 +6,26 @@ public class GameTest {
     public void testGameRun() throws Exception {
         //adjust
         RewardLogger rewardLogger = new RewardLogger();
+        int step = 10000000;
 
         //action
-        for (long i = 0; i < 10000000; ++i) {
-            System.out.println("New game:" + i);
+        for (long i = 0; i < step; ++i) {
+            System.out.println("Game:" + i);
             new Game(rewardLogger).run();
         }
-        System.out.println(rewardLogger.getDictionaryRewards());
+
+        //Euro Rewards
+        rewardLogger.getDictionaryRewards().entrySet().stream().filter(entry -> entry.getKey().isMoneyValue())
+                .forEach((key) -> System.out.println(key.getKey().toStringEuroReward() + ":" +
+                        " " + "Number received for " + step + " games = " + key.getValue()));
+        //Other Rewards
+        rewardLogger.getDictionaryRewards().entrySet().stream().filter(entry -> entry.getKey().isOtherValue())
+                .forEach((key) -> System.out.println(key.getKey().toStringOtherReward() + ":" +
+                        " " + "Number received for " + step + " games = " + key.getValue()));
+
+        //TotalAmount
+        System.out.println("Total Amount = " + rewardLogger.getTotalAmount());
+
     }
 
 }

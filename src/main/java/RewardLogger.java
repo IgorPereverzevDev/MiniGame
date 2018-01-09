@@ -5,6 +5,11 @@ import java.util.Map;
 class RewardLogger {
 
     private Map<Reward, Integer> rewards = new HashMap<>();
+
+    public Integer getTotalAmount() {
+        return totalAmount;
+    }
+
     private Integer totalAmount = 0;
 
     RewardLogger() {
@@ -34,7 +39,9 @@ class RewardLogger {
         rewards.put(new Reward(RewardValues.TotalAmount), totalAmount);
     }
 
+
     void addAmountToTotal(Reward reward) {
         totalAmount += reward.getEuroReward();
     }
+
 }

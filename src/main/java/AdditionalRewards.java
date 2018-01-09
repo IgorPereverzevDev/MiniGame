@@ -22,7 +22,7 @@ class AdditionalRewards {
         return reward;
     }
 
-    List<Reward> getAdditionalRewards() {
+    List<Reward> getAdditionalRewards()  {
         return additionalRewards;
     }
 

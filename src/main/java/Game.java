@@ -1,3 +1,4 @@
+import java.util.Optional;
 
 class Game {
 
@@ -34,9 +35,7 @@ class Game {
         while (!isGameOver(state, reward)) {
             state = state.changeStateGame(this, reward);
             reward = player.openBox();
-            if (reward != null) {
-                log.addNumberRewardsToDictionary(reward);
-            }
+            Optional.ofNullable(reward).ifPresent(log::addNumberRewardsToDictionary);
         }
         log.addAmountToTotal(player.getTotalWinAmount());
     }

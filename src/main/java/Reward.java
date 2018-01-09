@@ -27,7 +27,10 @@ class Reward {
     boolean isMoneyValue() {
         return otherReward == null;
     }
-    boolean isOtherValue(){return otherReward != null; }
+
+    boolean isOtherValue() {
+        return otherReward != null;
+    }
 
     static Reward moneyComposition(Reward reward1, Reward reward2) {
         if (reward1.isMoneyValue() && reward2.isMoneyValue()) {
@@ -36,4 +39,13 @@ class Reward {
             throw new IllegalArgumentException();
         }
     }
+
+     String toStringEuroReward() {
+        return "Euro Reward "  + euroReward ;
+     }
+
+    String toStringOtherReward() {
+        return  "Other Reward " + otherReward;
+    }
+
 }
